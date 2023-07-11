@@ -1,0 +1,680 @@
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
+}
+
+body {
+   background-color: #00171F;
+    color: #ededed;
+}
+.header{
+    position:fixed;
+    top: 2em;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 25px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+}
+.navbar a :hover,
+.navbar a.active {
+    color: rgb(255, 255, 255);
+}
+
+.home{
+    height: 100vh;
+    background: url('sky.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.home-content{
+    max-width: 600px;
+}
+.home-content h1{
+    font-size: 56px;
+    font-weight: 700;
+}
+.home-content h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: rgb(212, 234, 255);
+}
+.home-content p{
+    font-size: 16px;
+    margin: 20px 0 40px;
+    line-height: 1.2;
+}
+.home-content .btn-box{
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+    height: 50px;   
+}
+
+.btn-box a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background: #009124;
+    border: 2px solid #34353f;
+    border-radius: 8px;
+    font-size: 19px;
+    color: #00171F;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+.btn-box a:hover {
+    color: #34353f;
+
+}
+
+.btn-box a:nth-child(2) {
+    background: transparent;
+    color: #ededed;
+}   
+
+.btn-box a:nth-child(2):hover {
+     color: #0a2b11;
+}
+
+.btn-box a:nth-child(2)::before {
+    background: #970c0c;
+}
+
+.btn-box a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #9b0707;
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box a:hover::before{
+    width: 100%;
+}
+
+.home-sci {
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-sci a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #c7c7ca;
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(188, 202, 202);
+    text-decoration: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-sci a:hover{
+    color: #0a2b11;
+}
+
+.home-sci a ::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(139, 134, 134);
+    z-index: -1;
+    transition:  .5s;
+}
+
+.home-sci a:hover::before{
+    width: 100%;
+}
+
+
+
+
+
+
+.main {
+  align-items: center;
+  justify-content: center;
+  transform: translate(0%,25%);
+}
+
+.sky {
+  width: 13em;
+  height: 3.5em;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #171717;
+  border-radius: 15px;
+  padding-left: 1em;
+  z-index: 3;
+  overflow: hidden;
+  transition: .4s ease-in-out;
+}
+
+.text {
+  color: white;
+  padding-left: 0.5em;
+  padding-top: 0.1em;
+  letter-spacing: 0.7em;
+  transition: .4s ease-in-out;
+  z-index: 3;
+  font-weight: bold;
+}
+
+.text {
+  position: absolute;
+  letter-spacing: normal;
+  left: 0.6cm;
+}
+
+.planet {
+  position: relative;
+  margin-left: -9.55em;
+  left: 2.6em;
+  scale: 4;
+  transition: .4s ease-in-out;
+}
+
+.img {
+  margin-left: -7.25em;
+  margin-top: 6.3em;
+  transition: .4s ease-in-out;
+  z-index: -2;
+}
+
+.img .stars {
+  margin-right: -0.8em;
+  margin-top: 7em;
+  scale: 0.85;
+  opacity: 0;
+  transition: .4s ease-in-out;
+}
+
+.img .astronaut {
+  position: relative;
+  top: -6.2em;
+  left: .65em;
+}
+
+.satalite {
+  position: relative;
+  left: -1em;
+  top: -3em;
+  animation: 4s around infinite;
+  transition: .4s ease-in-out;
+}
+
+@keyframes around {
+  0% {
+    z-index: 5;
+    transform: translateY(-3.5em) translateX(8.5em);
+  }
+
+  50% {
+    transform: translateX(1em) translateY(3.5em);
+  }
+
+  100% {
+    transform: translateY(-3.5em) translateX(8.5em);
+    z-index: -2;
+  }
+}
+
+.sky:hover .img {
+  margin-top: -1em;
+  z-index: 4;
+}
+
+.sky:hover .text {
+  opacity: 0;
+}
+
+.sky:hover .planet {
+  opacity: 0;
+}
+
+.sky:hover + .satalite {
+  opacity: 0;
+}
+
+.sky:active {
+  transform: scale(0.9);
+}
+
+.sky:active .stars {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  .Behance {
+    background-color: #eed2f7;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 7px;
+    color: #1f2c41;
+    cursor: pointer;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border: none;
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+    left: 40cm;
+    bottom: 2cm;
+   }
+   
+  .Behance:hover {
+    background-image: linear-gradient(90deg, #53cbef 0%, #dcc66c 50%, #ffa3b6 75%, #53cbef 100%);
+    animation: slidernbw 5s linear infinite;
+    color: #000;
+   }
+   
+   @keyframes slidernbw {
+    to {
+     background-position: 20vw;
+    }
+   }
+
+
+   .github {
+    display: grid;
+    place-items: center;
+    background: #f8f8ff;
+    padding: 1.4em;
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0);
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+  
+  .github:hover {
+    color: #ffffff;
+    background-color: #E5EDF5;
+    box-shadow: -2px -1px 8px 0px #29465B, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+   }
+   
+  .github:active {
+    box-shadow: none;
+   }
+
+  .github:hover {
+    border: 1px solid rgba(0,0,0,0.1);
+    transform: translateY(0.5em);
+  }
+  
+  .github svg {
+    transition: transform 0.5s;
+  }
+  
+  .btn:hover svg {
+    transform: scale(0.9);
+    fill: #333333;
+  }
+  
+  .github {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom: 75px;
+    left: 5.1cm;
+    width: 170px;
+    width: 4.4em;
+    height: 4.4em;
+    padding-left: 1.5em;
+    padding-top: 0.7em;
+  }
+
+  .dribble {
+    display: grid;
+    place-items: center;
+    background: #f8f8ff;
+    padding: 1.4em;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+
+  .dribble:hover {
+    color: #ffffff;
+    background-color: #E5EDF5;
+    box-shadow: -2px -1px 8px 0px #29465B, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+   }
+
+  .dribble:hover {
+    border: 1px solid rgba(0,0,0,0.1);
+    transform: translateY(0.5em);
+  }
+  
+  .dribble svg {
+    transition: transform 0.5s;
+  }
+  
+  .btn:hover svg {
+    transform: scale(0.9);
+    fill: #333333;
+  }
+  
+  .dribble {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom: 75px;
+    left: 7.4cm;
+    width: 170px;
+    width: 4.4em;
+    height: 4.4em;
+    padding-left: 1.4em;
+    padding-top: 1em;
+  }
+
+  .medium {
+    display: grid;
+    place-items: center;
+    background: #f8f8ff;
+    padding: 1.4em;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+  
+ .medium:hover {
+    color: #ffffff;
+    background-color: #E5EDF5;
+    box-shadow: -2px -1px 8px 0px #29465B, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+   }
+
+  .medium:hover {
+    border: 1px solid rgba(0,0,0,0.1);
+    transform: translateY(0.5em);
+  }
+  
+  .medium svg {
+    transition: transform 0.5s;
+  }
+  
+  .btn:hover svg {
+    transform: scale(0.9);
+    fill: #333333;
+  }
+  
+  .medium {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom: 75px;
+    left: 9.7cm;
+    width: 170px;
+    width: 4.4em;
+    height: 4.4em;
+    padding-left: 1.5em;
+    padding-top: 0.9em;
+  }
+
+  .active {
+    font-size: 18px;
+    color: #e1e1e1;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+  
+  .active:focus,
+  .active:hover {
+    color: #fff;
+  }
+  
+  .active:focus:after,
+  .active:hover:after {
+    width: 100%;
+    left: 0%;
+  }
+
+  .active:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }
+
+
+   .active {
+    font-size: 18px;
+    color: #e1e1e1;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: color;
+  }
+  
+  .active:focus,
+  .active:hover {
+    color: #fff;
+  }
+  
+  .active:focus:after,
+  .active:hover:after {
+    width: 100%;
+    left: 0%;
+  }
+
+  .active:after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }
+
+
+
+
+
+.main {
+  align-items: center;
+  justify-content: center;
+  transform: translate(0%,25%);
+}
+
+.explore {
+  width: 13em;
+  height: 3.5em;
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: #171717;
+  border-radius: 15px;
+  padding-left: 1em;
+  z-index: 3;
+  overflow: hidden;
+  transition: .4s ease-in-out;
+}
+
+.text {
+  color: white;
+  padding-left: 0.5em;
+  padding-top: 0.1em;
+  letter-spacing: 0.8em;
+  transition: .4s ease-in-out;
+  z-index: 3;
+  font-weight: bold;
+}
+
+.planet {
+  position: relative;
+  margin-left: -9.55em;
+  left: 2.6em;
+  scale: 4;
+  transition: .4s ease-in-out;
+}
+
+.img {
+  margin-left: -7.25em;
+  margin-top: 6.3em;
+  transition: .4s ease-in-out;
+  z-index: -2;
+}
+
+.img .stars {
+  margin-right: -0.8em;
+  margin-top: 7em;
+  scale: 0.85;
+  opacity: 0;
+  transition: .4s ease-in-out;
+}
+
+.img .astronaut {
+  position: relative;
+  top: -6.2em;
+  left: .65em;
+}
+
+.img .astronaut{
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 0.7cm;
+}
+
+.satalite {
+  position: relative;
+  left: -1em;
+  top: -3em;
+  animation: 4s around infinite;
+  transition: .4s ease-in-out;
+}
+
+@keyframes around {
+  0% {
+    z-index: 5;
+    transform: translateY(-3.5em) translateX(8.5em);
+  }
+
+  50% {
+    transform: translateX(1em) translateY(3.5em);
+  }
+
+  100% {
+    transform: translateY(-3.5em) translateX(8.5em);
+    z-index: -2;
+  }
+}
+
+.explore:hover .img {
+  margin-top: -1em;
+  z-index: 4;
+}
+
+.explore:hover .text {
+  opacity: 0;
+}
+
+.explore:hover .planet {
+  opacity: 0;
+}
+
+.explore:hover + .satalite {
+  opacity: 0;
+}
+
+.explore:active {
+  transform: scale(0.9);
+}
+
+.explore:active .stars {
+  opacity: 1;
+}
+
+
+
+
+
